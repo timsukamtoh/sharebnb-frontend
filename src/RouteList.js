@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
-import { Routes, Route, Navigate, NotFound } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import HomePage from './HomePage';
-import CompanyDetailsPage from './CompanyDetailsPage';
-import CompaniesPage from './CompaniesPage';
-import JobsPage from './JobsPage';
 import LoginPage from './LoginPage';
 import SignUpPage from './SignUpPage';
 import ProfilePage from './ProfilePage';
 import userContext from './userContext';
-
+import BookingsPage from "./BookingsPage";
+import PropertiesPage from "./PropertiesPage";
+import PropertiesList from "./PropertiesList";
+import NotFound from "./NotFound";
 
 
 /**
@@ -17,23 +17,23 @@ import userContext from './userContext';
  *
  * App -> RoutesList -> {HomePage, LoginPage, SignUpPage, ProfilePage, CompanyPage, CompanyDetailsPage, JobsPage}
  */
-function RouteList({ login, signUp, updateUser }) {
+function RouteList({ login, signup, updateUser }) {
   const { currUser } = useContext(userContext);
 
 
   return (
     <Routes className="Routes">
-      <Route path="/" element={<Home />} />
-      <Route path="/properties" element={<PropertiesPage all={true}></PropertiesPage>}></Route>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/properties" element={<PropertiesPage></PropertiesPage>}></Route>
       {!currUser
         ? <React.Fragment>
-          <Route path="/login" element={<Login login={login} />} />
-          <Route path="/signup" element={<SignUp signup={signup} />} />
+          <Route path="/login" element={<LoginPage login={login} />} />
+          <Route path="/signup" element={<SignUpPage signup={signup} />} />
         </React.Fragment>
         : <React.Fragment>
-          <Route path={`/users/${currUser.username}/properties`} element={<PropertiesPage all={false}/>} />
-          <Route path={`/users/${currUser.username}/bookings`} element={<BookingsPage apply={apply}/>} />
-          <Route path={`/users/${currUser.username}/profile`} element={<ProfilePage update={update} />}/>
+          <Route path={`/users/:username/properties`} element={<PropertiesList properties={currUser.properties}/>} />
+          <Route path={`/users/:username/bookings`} element={<BookingsPage addBooking/>} />
+          <Route path={`/users/:username/profile`} element={<ProfilePage update={updateUser} />}/>
         </React.Fragment>
       }
       <Route path="*" element={<NotFound />} />
