@@ -16,7 +16,7 @@ function BookingCard({booking, delBooking}) {
 
   return (
     <div className="BookingCard">
-      <Link to={`/bookings/${booking.id}`}>
+      <Link className="text-decoration-none text-dark" to={`/bookings/${booking.id}`}>
         <h2>{booking.address}</h2>
       </Link>
       <img src={booking.property.img_url} alt={booking.id}></img>
