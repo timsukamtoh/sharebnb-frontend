@@ -39,10 +39,10 @@ class SharebnbApi {
 
   // /** Get details on a company by handle. */
 
-  // static async getCompany(handle) {
-  //   let res = await this.request(`companies/${handle}`);
-  //   return res.company;
-  // }
+  static async getProperty(propertyId) {
+    let res = await this.request(`property/${propertyId}`);
+    return res.property;
+  }
 
   /** Get list of properties*/
 
@@ -78,13 +78,17 @@ class SharebnbApi {
     let res = await this.request(`user/${username}`);
     return res.user;
   }
-//hint endpoint is /user/username so update user needs to recieve username
-//current user has access
+
   /** Send { username, password, firstName, lastName, email }
    *  to api and retrieve user */
   static async updateUser(username, data) {
     let res = await this.request(`user/${username}`, data, "patch");
     return res.user;
+  }
+
+  static async addBooking(propertyId, data) {
+    let res = await this.request(`property/${propertyId}/bookings`, data, "post");
+    return res.booking;
   }
 
 }

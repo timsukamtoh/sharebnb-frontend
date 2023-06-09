@@ -35,16 +35,16 @@ function App() {
   }, [accessToken]);
 
 
-//USER METHODS
+  //USER METHODS
 
   /** Creates a new user and sets accessToken */
-  async function signup(formData={}) {
+  async function signup(formData = {}) {
     const registerResp = await SharebnbApi.register(formData);
     setAccessToken(registerResp);
   }
 
   /** Logs in user and sets accessToken */
-  async function login(formData={}) {
+  async function login(formData = {}) {
     const loginResp = await SharebnbApi.login(formData);
     setAccessToken(loginResp);
   }
@@ -61,6 +61,15 @@ function App() {
     setCurrUser(null);
   }
 
+  /**BOOKING METHODS */
+
+  async function addBooking(formData = {}) {
+    const bookResp = await SharebnbApi.addBooking(formData);
+    setCurrUser(oldUser =>
+      ({ ...oldUser,
+        bookings: [...oldUser.bookings, bookResp.booking] }));
+  }
+
   if (loadingUser) return (<div>Loading...</div>);
 
   return (
@@ -68,7 +77,12 @@ function App() {
       <BrowserRouter>
         <userContext.Provider value={{ currUser }}>
           <NavBar logout={logout} />
-          <RouteList login={login} signup={signup} updateUser={updateUser} />
+          <RouteList
+            login={login}
+            signup={signup}
+            updateUser={updateUser}
+            addBooking={addBooking}
+          />
         </userContext.Provider>
       </BrowserRouter>
     </div>

@@ -8,6 +8,7 @@ import ProfilePage from './ProfilePage';
 import userContext from './userContext';
 import BookingsPage from "./BookingsPage";
 import PropertiesPage from "./PropertiesPage";
+import PropertyDetail from "./PropertiesDetail";
 import PropertiesList from "./PropertiesList";
 import NotFound from "./NotFound";
 
@@ -17,7 +18,7 @@ import NotFound from "./NotFound";
  *
  * App -> RoutesList -> {HomePage, LoginPage, SignUpPage, ProfilePage, CompanyPage, CompanyDetailsPage, JobsPage}
  */
-function RouteList({ login, signup, updateUser }) {
+function RouteList({ login, signup, updateUser, addBooking }) {
   const { currUser } = useContext(userContext);
 
 
@@ -25,6 +26,8 @@ function RouteList({ login, signup, updateUser }) {
     <Routes className="Routes">
       <Route path="/" element={<HomePage />} />
       <Route path="/properties" element={<PropertiesPage></PropertiesPage>}></Route>
+      <Route path="/properties/:propertyId" element={<PropertyDetail onSubmit={addBooking} />}/>
+
       {!currUser
         ? <React.Fragment>
           <Route path="/login" element={<LoginPage login={login} />} />
