@@ -26,13 +26,14 @@ class SharebnbApi {
       ? data
       : {};
 
-    try {
-      return (await axios({ url, method, data, params, headers })).data;
-    } catch (err) {
-      console.error("API Error:", err.response.data);
-      let message = err.response.data.error;
-      throw Array.isArray(message) ? message : [message];
-    }
+      try {
+        return (await axios({ url, method, data, params, headers })).data;
+      } catch (err) {
+        console.log("here error")
+        console.error("API Error:", err.response.data);
+        let message = err.response.data.error;
+        throw Array.isArray(message) ? message : [message];
+      }
   }
 
   // Individual API routes
@@ -41,6 +42,11 @@ class SharebnbApi {
 
   static async getProperty(propertyId) {
     let res = await this.request(`property/${propertyId}`);
+    return res.property;
+  }
+
+  static async addProperty(formData={}) {
+    let res = await this.request(`property`, formData, "post");
     return res.property;
   }
 
@@ -89,8 +95,22 @@ class SharebnbApi {
   }
 
   static async addBooking(propertyId, data) {
+    console.log("addBooking", "propertyId: ", propertyId, "data: ", data)
     let res = await this.request(`property/${propertyId}/bookings`, data, "post");
+    console.log('res', res);
     return res.booking;
+  }
+
+  static async getBooking(bookingId) {
+    console.log("booking token: ", this.accessToken)
+    let res = await this.request(`bookings/${bookingId}`);
+    return res.booking;
+  }
+
+  static async deleteBooking(bookingId) {
+    console.log("booking token: ", this.accessToken)
+    let res = await this.request(`bookings/${bookingId}`,{}, "delete");
+    return res;
   }
 
 }

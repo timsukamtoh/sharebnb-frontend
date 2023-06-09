@@ -10,6 +10,8 @@ import PropertiesPage from "./PropertiesPage";
 import PropertyDetail from "./PropertiesDetail";
 import PropertiesList from "./PropertiesList";
 import NotFound from "./NotFound";
+import BookingsList from "./BookingsList";
+import BookingDetail from "./BookingDetail";
 
 
 /**
@@ -17,8 +19,9 @@ import NotFound from "./NotFound";
  *
  * App -> RoutesList -> {HomePage, LoginPage, SignUpPage, ProfilePage, CompanyPage, CompanyDetailsPage, JobsPage}
  */
-function RouteList({ login, signup, updateUser, addBooking }) {
+function RouteList({ login, signup, updateUser, addBooking, delBooking, addProperty }) {
   const { currUser } = useContext(userContext);
+  console.log(typeof delBooking);
 
 
   return (
@@ -33,8 +36,9 @@ function RouteList({ login, signup, updateUser, addBooking }) {
           <Route path="/signup" element={<SignUpPage signup={signup} />} />
         </React.Fragment>
         : <React.Fragment>
-          <Route path={`/users/:username/properties`} element={<PropertiesList properties={currUser.properties}/>} />
-          <Route path={`/users/:username/bookings`} element={<PropertiesList properties={currUser.bookings}/>} />
+          <Route path={`/users/:username/properties`} element={<PropertiesList properties={currUser.properties} addProperty={addProperty}/>} />
+          <Route path={`/users/:username/bookings`} element={<BookingsList bookings={currUser.bookings} delBooking={delBooking} />}/>
+          <Route path={`/bookings/:bookingId`} element={<BookingDetail />} />
           <Route path={`/users/:username/profile`} element={<ProfilePage update={updateUser} />}/>
         </React.Fragment>
       }

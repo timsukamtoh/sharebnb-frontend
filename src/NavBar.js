@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
-
 import userContext from "./userContext";
+import "./NavBar.css";
 
 /**
  * Component for NavBar
@@ -11,7 +11,6 @@ function NavBar({ logout }) {
 
   return (
     <nav className="navbar navbar-dark navbar-expand-sm bg-primary">
-      <div className="container-fluid">
         <NavLink className="col-4 navbar-brand nav-link" to="/" >
           Home
         </NavLink>
@@ -30,7 +29,6 @@ function NavBar({ logout }) {
             <Link  onClick={logout} className="Logout nav-link" to="/" >Logout {currUser.first_name}</Link>
           </div>
         }
-      </div>
     </nav>
   );
 

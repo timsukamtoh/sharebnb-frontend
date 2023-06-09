@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Alert from "./Alert";
 
 /** Component for rendering Booking form */
@@ -22,27 +22,33 @@ function BookingForm({ propertyId, onSubmit }) {
     const submitData = new FormData();
     submitData.append('start_date', formData.startDate);
     submitData.append('end_date', formData.endDate);
-    console.log("submitData: ", submitData)
 
     try {
       await onSubmit(propertyId, submitData);
       setFormData({});
       navigate("/");
     } catch (err) {
+      console.log("form err", err);
       setAlertMsgs(err);
     }
   }
 
+  console.log("AlertMsgs: ",alertMsgs)
+  console.log("alertMsgs.length = ", alertMsgs.length)
+
   return (
     <div className="BookingForm m-2">
-      <form encType="multipart/form" onSubmit={handleSubmit}>
-        <label htmlFor="startDate">Start Date:</label>
-        <input id="startDate" name="startDate" type="date" onChange={handleChange} />
-        <label htmlFor="endDate">End Date:</label>
-        <input id="endDate" name="endDate" type="date" onChange={handleChange} />
-        {alertMsgs.length > 0 && <Alert alertMsgs={alertMsgs} />}
-        <button>Submit</button>
-      </form>
+      {alertMsgs.length > 0 && <Alert alertMsgs={alertMsgs} />}
+      <div className="form body">
+        <form encType="multipart/form" onSubmit={handleSubmit}>
+          <label htmlFor="startDate">Start Date:</label>
+          <input id="startDate" name="startDate" type="date" onChange={handleChange} />
+          <label htmlFor="endDate">End Date:</label>
+          <input id="endDate" name="endDate" type="date" onChange={handleChange} />
+          <button className="btn btn-success">Submit</button>
+          <Link className="btn btn-warning" to={'/properties'}>Cancel</Link>
+        </form>
+      </div>
     </div>
 
   );

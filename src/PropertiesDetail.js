@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import SharebnbApi from "./api";
 import userContext from "./userContext";
 import BookingForm from "./BookingForm";
@@ -33,10 +33,11 @@ function PropertyDetail({ onSubmit }) {
     <div>
       <h2>{property.data.address}</h2>
       <img src={property.data.img_url} alt={property.data.id}></img>
+      <p>owner: {property.data.owner}</p>
       <p>price rate: {property.data.price_rate}</p>
       <p>sq ft: {property.data.sqft}</p>
       <p>{property.data.description}</p>
-      {currUser && !isBooking && <div>
+      {currUser && !isBooking && currUser.username !== property.data.owner && <div>
         <button className="btn btn-primary" onClick={toggleBooking}>Book</button>
       </div>}
       {isBooking && <BookingForm propertyId={property.data.id} onSubmit={onSubmit} />}
