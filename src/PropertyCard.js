@@ -10,7 +10,7 @@ import "./PropertyCard.css";
  */
 function PropertyCard({property}) {
   return (
-    <Link to={`/properties/${property.id}`}>
+    <Link className="text-decoration-none text-dark" to={`/properties/${property.id}`}>
     <div className="PropertyCard">
       <h2>{property.address}</h2>
       <img src={property.img_url} alt={property.id}></img>
