@@ -3,7 +3,17 @@ import { useState } from "react";
 import PropertyForm from "./PropertyForm";
 import { useParams } from "react-router-dom";
 
-
+/** PropertiesList renders list for property
+ *
+ * Props:
+ *    -properties | list of property objects
+ *    -addProperty | func passed down from parent to handle add property
+ *
+ * States:
+ *    -isAdding | bool to toggle Add Property button and form
+ *
+ * RouteList -> PropertiesList -> PropertyForm || PropertyCard
+ */
 function PropertiesList({properties, addProperty}) {
   const [isAdding, setIsAdding] = useState(false);
   const { username } = useParams();
@@ -14,7 +24,7 @@ function PropertiesList({properties, addProperty}) {
 
   return (
     <div className="PropertiesList">
-      {username && !isAdding && <button className="btn btn-info" onClick={toggleAdding}>Add Property</button>}
+      {username && !isAdding && <button className="btn btn-info m-2" onClick={toggleAdding}>Add Property</button>}
       {isAdding &&
           <div>
             <PropertyForm onSubmit={addProperty} toggleAdding={toggleAdding}/>

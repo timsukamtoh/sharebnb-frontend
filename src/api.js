@@ -38,34 +38,26 @@ class SharebnbApi {
 
   // Individual API routes
 
-  // /** Get details on a property by Id. */
-
+  /** Get details on a property by Id. */
   static async getProperty(propertyId) {
     let res = await this.request(`property/${propertyId}`);
     return res.property;
   }
 
+  /** Add Property */
   static async addProperty(formData={}) {
     let res = await this.request(`property`, formData, "post");
     return res.property;
   }
 
   /** Get list of properties*/
-
   static async getProperties() {
     let res = await this.request("property");
     return res.properties;
   }
 
-  // /** Get list of jobs with search term */
 
-  // static async getJobs(data) {
-  //   let res = await this.request("jobs", data);
-  //   return res.jobs;
-  // }
-
-  // /** Send { username, password } to api and retrieve token */
-
+  /** Send { username, password } to api and retrieve token */
   static async login(data) {
     let res = await this.request("auth/login", data, "post");
     return res.access_token;
@@ -73,14 +65,12 @@ class SharebnbApi {
 
   /** Send { username, password, firstName, lastName, email }
    * to api and retrieve token */
-
   static async register(data) {
     let res = await this.request("auth/signup", data, "post");
     return res.access_token;
   }
 
   /** Send username and get user information */
-
   static async getUser(username) {
     let res = await this.request(`user/${username}`);
     return res.user;
@@ -88,12 +78,12 @@ class SharebnbApi {
 
   /** Send { username, password, firstName, lastName, email }
    *  to api and retrieve user */
-
   static async updateUser(username, data) {
     let res = await this.request(`user/${username}`, data, "patch");
     return res.user;
   }
 
+  /** Add booking and return booking item */
   static async addBooking(propertyId, data) {
     console.log("addBooking", "propertyId: ", propertyId, "data: ", data)
     let res = await this.request(`property/${propertyId}/bookings`, data, "post");
@@ -101,12 +91,14 @@ class SharebnbApi {
     return res.booking;
   }
 
+  /** Get details regarding booking provided bookingId */
   static async getBooking(bookingId) {
     console.log("booking token: ", this.accessToken)
     let res = await this.request(`bookings/${bookingId}`);
     return res.booking;
   }
 
+  /** Delete booking from db */
   static async deleteBooking(bookingId) {
     console.log("booking token: ", this.accessToken)
     let res = await this.request(`bookings/${bookingId}`,{}, "delete");

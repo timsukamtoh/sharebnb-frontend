@@ -17,6 +17,14 @@ import BookingDetail from "./BookingDetail";
 /**
  * Component for RouteList
  *
+ * Props:
+ *    -login | function for logging in
+ *    -signup | function to sign up
+ *    -updateUser | function to update user
+ *    -addBooking | function to add booking
+ *    -delBooking | function to delete booking
+ *    -addProperty | function to add Property
+ *
  * App -> RoutesList -> {HomePage, LoginPage, SignUpPage, ProfilePage, CompanyPage, CompanyDetailsPage, JobsPage}
  */
 function RouteList({ login, signup, updateUser, addBooking, delBooking, addProperty }) {

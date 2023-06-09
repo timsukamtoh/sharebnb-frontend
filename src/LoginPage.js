@@ -5,6 +5,8 @@ import LoginForm from "./LoginForm";
  *
  * Prop:
  * - login: func from parent, called when user logs in
+ *
+ * RouteList -> LoginPage -> LoginForm
  */
 
 function LoginPage({login}) {

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 /** NotFound page for any case of inappropriate pages
  *
- * JoblyRoutes => NotFound
+ * JoblyRoutes -> NotFound
 */
 
 function NotFound() {

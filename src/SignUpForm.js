@@ -2,6 +2,17 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Alert from "./Alert";
 
+/** SignUpForm renders form to sign up user
+ *
+ *  Props:
+ *    -onSubmit | function passed down from parent to handle submit
+ *
+ * States:
+ *    -formData | form data
+ *    -alertMsgs | list of messages to alert
+ *
+ * RouteList -> HomePage -> SignUpForm
+ */
 function SignUpForm({ onSubmit }) {
   const navigate = useNavigate();
   const initialFormInput = {
@@ -43,11 +54,11 @@ function SignUpForm({ onSubmit }) {
   }
 
   return (
-    <div className="SignUpForm m-2">
+    <div className="SignUpForm m-2 d-flex justify-content-center">
       <form onSubmit={handleSubmit} encType="multipart/form">
         <div>
           <input
-            className="form-control w-25"
+            className="form-control w-100"
             id="username"
             onChange={handleChange}
             name="username"
@@ -58,7 +69,7 @@ function SignUpForm({ onSubmit }) {
 
         <div>
           <input
-            className="form-control w-25"
+            className="form-control w-100"
             id="password"
             type="password"
             onChange={handleChange}
@@ -70,7 +81,7 @@ function SignUpForm({ onSubmit }) {
 
         <div>
           <input
-            className="form-control w-25"
+            className="form-control w-100"
             id="firstName"
             onChange={handleChange}
             name="firstName"
@@ -81,7 +92,7 @@ function SignUpForm({ onSubmit }) {
 
         <div>
           <input
-            className="form-control w-25"
+            className="form-control w-100"
             id="lastName"
             onChange={handleChange}
             name="lastName"
@@ -92,7 +103,7 @@ function SignUpForm({ onSubmit }) {
 
         <div>
           <input
-            className="form-control w-25"
+            className="form-control w-100"
             id="email"
             onChange={handleChange}
             name="email"

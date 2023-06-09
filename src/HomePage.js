@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import userContext from "./userContext";
+import "./HomePage.css";
 
 /** HomePage renders home page
  *
@@ -15,10 +16,10 @@ function HomePage() {
       <div className="position-absolute top-50 start-50 translate-middle">
         <h4>Welcome to SharenBn!</h4>
         <button className="btn btn-success m-2 text-center">
-          <Link to="/login">Login</Link>
+          <Link to="/login" className=" text-decoration-none text-light">Login</Link>
         </button>
         <button className="btn btn-info m-2 text-center">
-          <Link to="/signup">Signup</Link>
+          <Link to="/signup" className=" text-decoration-none text-light">Signup</Link>
         </button>
       </div>
     );

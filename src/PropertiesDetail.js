@@ -7,6 +7,14 @@ import BookingForm from "./BookingForm";
 /**
  * Component for rendering PropertyDetail
  *
+ * Prop:
+ *    -onSubmit | func passed from parent to pass down to BookingForm
+ *
+ * States:
+ *    -property | object {data, isLoading}
+ *    -isBooking | bool to determine whether to display booking form
+ *
+ * PropertyList -> PropertyCard -> PropertyDetail
  */
 function PropertyDetail({ onSubmit }) {
   const { propertyId } = useParams();

@@ -3,6 +3,19 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Alert from "./Alert";
 
+/** PropertyForms renders form to add new property
+ *
+ * Props:
+ *    -onSubmit | func passed from parent to handle submission
+ *    -toggleAdding | bool to determine whether to show PropertyForm
+ *
+ * States:
+ *    -formData | formData
+ *    -alertMsgs | list of messages for alert
+ *    -file | for file upload
+ *
+ * PropertyList -> PropertyForm
+ */
 function PropertyForm({ onSubmit, toggleAdding }) {
   const navigate = useNavigate();
   const { currUser } = useContext(userContext);
@@ -52,11 +65,11 @@ function PropertyForm({ onSubmit, toggleAdding }) {
   }
 
   return (
-    <div className="PropertyForm m-2 text-start m-2">
+    <div className="PropertyForm m-2 text-start m-2 d-flex justify-content-center">
       <form onSubmit={handleSubmit} encType="multipart/form">
         <div>
           <input
-            className="form-control w-50"
+            className="form-control w-100"
             id="address"
             onChange={handleChange}
             name="address"
@@ -67,7 +80,7 @@ function PropertyForm({ onSubmit, toggleAdding }) {
 
         <div>
           <input
-            className="form-control w-50"
+            className="form-control w-100"
             id="sqft"
             type="sqft"
             onChange={handleChange}
@@ -79,7 +92,7 @@ function PropertyForm({ onSubmit, toggleAdding }) {
 
         <div>
           <input
-            className="form-control w-50"
+            className="form-control w-100"
             id="description"
             onChange={handleChange}
             name="description"
@@ -90,7 +103,7 @@ function PropertyForm({ onSubmit, toggleAdding }) {
 
         <div>
           <input
-            className="form-control w-50"
+            className="form-control w-100"
             id="priceRate"
             onChange={handleChange}
             name="priceRate"
@@ -102,15 +115,17 @@ function PropertyForm({ onSubmit, toggleAdding }) {
         <div>
           <input
             type="file"
-            className="form-control w-50"
+            className="form-control w-100"
             id="file"
             onChange={handleFile}
             name="file"
           />
         </div>
         {alertMsgs.length > 0 && <Alert alertMsgs={alertMsgs} />}
+        <div className='d-flex justify-content-start'>
         <button className="PropertyForm-submitBtn btn btn-primary m-1">Add Property</button>
-        <button className="btn btn-danger" onClick={toggleAdding}>Cancel</button>
+        <button className="btn btn-danger m-1" onClick={toggleAdding}>Cancel</button>
+        </div>
       </form>
     </div>
   );

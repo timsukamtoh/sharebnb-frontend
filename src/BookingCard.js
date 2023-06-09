@@ -2,10 +2,14 @@ import { Link } from "react-router-dom"
 /**
  * Component for rendering property card
  *
+ *  Props:
+ *      -booking | booking object
+ *      -delBooking | func from parent to delete booking
+ *
  * BookingsList -> BookingCard
  */
 function BookingCard({booking, delBooking}) {
-
+  console.log("bookingcard", booking)
   function handleClick() {
     delBooking(booking.id);
   }

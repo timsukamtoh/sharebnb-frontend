@@ -5,12 +5,17 @@ import "./NavBar.css";
 
 /**
  * Component for NavBar
+ *
+ * Prop:
+ *    -logout | func passed from parent to handle logout
+ *
+ * App -> NavBar
  */
 function NavBar({ logout }) {
   const { currUser } = useContext(userContext);
 
   return (
-    <nav className="navbar bg-primary text-white ">
+    <nav className="navbar bg-success text-white ">
       <NavLink className="col-5 navbar-brand nav-link text-white" to="/" >
         Home
       </NavLink>

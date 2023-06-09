@@ -2,6 +2,17 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Alert from "./Alert";
 
+/** Renders Login Form to log in
+ *
+ * Props:
+ *    -onSubmit | func passed down from parent to handle submit
+ *
+ * States:
+ *    -formData | form data
+ *    -alertMsgs | messages for alerts
+ *
+ * RouteList -> LoginPage -> LoginForm
+ */
 function LoginForm({ onSubmit }) {
   const navigate = useNavigate();
   const initialFormData = {
@@ -38,11 +49,11 @@ function LoginForm({ onSubmit }) {
   }
 
   return (
-    <div className="LoginForm">
+    <div className="LoginForm d-flex justify-content-center">
       <form onSubmit={handleSubmit} className="form" encType="multipart/form">
         <div className="form-group">
           <input
-            className="form-control w-25"
+            className="form-control w-100"
             id="username"
             onChange={handleChange}
             name="username"
@@ -54,7 +65,7 @@ function LoginForm({ onSubmit }) {
         <div className="form-group">
           <input
             type="password"
-            className="form-control w-25"
+            className="form-control w-100"
             id="password"
             onChange={handleChange}
             name="password"

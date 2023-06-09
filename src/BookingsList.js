@@ -1,5 +1,12 @@
 import BookingCard from "./BookingCard"
-
+/** BookingsList renders list of bookings for user
+ *
+ * Props:
+ *    -bookings | list of booking objects
+ *    -delBooking | func passed down from parent to handle deleting booking
+ *
+ * RouteList -> BookingsList -> BookingCard
+ */
 function BookingsList({bookings, delBooking}) {
   console.log("bookings:", bookings)
   console.log("delBooking type: ", typeof delBooking);

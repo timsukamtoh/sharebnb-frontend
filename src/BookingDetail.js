@@ -6,6 +6,11 @@ import userContext from "./userContext";
 /**
  * Component for rendering BookingDetail
  *
+ * State:
+ *    -booking | obj {data, isLoading}
+ *
+ * RouteList -> BookingDetail
+ *
  */
 function BookingDetail() {
   const { bookingId } = useParams();
@@ -16,7 +21,7 @@ function BookingDetail() {
     async function loadBooking() {
       const newBooking = await SharebnbApi.getBooking(bookingId);
       console.log("newBooking", newBooking)
-      setBooking({ data: newBooking.booking, isLoading: false });
+      setBooking({ data: newBooking, isLoading: false });
     }
     loadBooking();
   }, []);

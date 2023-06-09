@@ -2,7 +2,18 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Alert from "./Alert";
 
-/** Component for rendering Booking form */
+/** Component for rendering Booking form
+ *
+ * Prop:
+ *    -propertyId | property ID to make booking for
+ *    -onSubmit | func passed down from parent to handle submit
+ *
+ * States:
+ *    -formData | form data
+ *    -alertMsgs | messages for alerts if needed
+ *
+ * PropertyCard -> BookingForm && PropertyDetail
+ */
 function BookingForm({ propertyId, onSubmit }) {
   const navigate = useNavigate();
 

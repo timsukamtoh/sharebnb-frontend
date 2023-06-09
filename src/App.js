@@ -9,7 +9,15 @@ import RouteList from './RouteList';
 import userContext from "./userContext";
 import useLocalStorage from './useLocalStorage';
 
-
+/** App render application
+ *
+ *  States:
+ *    -currUser | object for user details
+ *    -loadingUser | determines whether to display loading screen (bool)
+ *    -accessToken | token for authorization
+ *
+ * App -> RouteList
+ */
 function App() {
   const [currUser, setCurrUser] = useState(null);
   const [loadingUser, setLoadingUser] = useState(true);
@@ -62,6 +70,8 @@ function App() {
   }
 
   /**PROPERTY METHODS */
+
+  /** Adds property */
   async function addProperty(formData={}) {
     const propResp = await SharebnbApi.addProperty(formData);
     setCurrUser(oldUser =>
@@ -73,6 +83,7 @@ function App() {
 
   /**BOOKING METHODS */
 
+  /** Add booking */
   async function addBooking(propertyId, formData = {}) {
     const bookResp = await SharebnbApi.addBooking(propertyId, formData);
     setCurrUser(oldUser =>
@@ -82,6 +93,7 @@ function App() {
     }));
   }
 
+  /** Delete booking */
   async function delBooking(bookingId) {
     await SharebnbApi.deleteBooking(bookingId);
     setCurrUser(oldUser =>

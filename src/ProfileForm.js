@@ -6,9 +6,13 @@ import Alert from "./Alert";
 /** ProfileForm renders the edit profile form.
  *
  *  Props
- *  - update: func from parent, called onSubmit
+ *  - onSubmit: func from parent, called onSubmit
  *
- *  Profile => ProfileForm
+ * States:
+ *    -alertMsgs | msgs for alert to show
+ *    -formData | data for forms
+ *
+ *  ProfilePage -> ProfileForm
  */
 
 function ProfileForm({ onSubmit }) {

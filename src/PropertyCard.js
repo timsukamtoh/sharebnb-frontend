@@ -1,6 +1,10 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import "./PropertyCard.css";
 /**
  * Component for rendering property card
+ *
+ * Props:
+ *    -property | property object to display card
  *
  * PropertyList -> PropertyCard
  */
@@ -10,7 +14,7 @@ function PropertyCard({property}) {
     <div className="PropertyCard">
       <h2>{property.address}</h2>
       <img src={property.img_url} alt={property.id}></img>
-      <p>price rate: {property.price_rate}</p>
+      <p>price rate: ${property.price_rate}/day</p>
     </div>
     </Link>
   )
