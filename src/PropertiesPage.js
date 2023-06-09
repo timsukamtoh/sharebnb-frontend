@@ -2,6 +2,14 @@ import { useState, useEffect } from "react"
 import SharebnbApi from "./api";
 import PropertiesList from "./PropertiesList"
 
+/**
+ * Component for rendering Bookings Page
+ *
+ * State:
+ * - propertiesList : object like {data, isLoading}
+ *
+ * RouteList -> PropertiesPage -> PropertiesList
+ */
 function PropertiesPage() {
   const [propertiesList, setPropertiesList] = useState({data:[], isLoading:true})
 

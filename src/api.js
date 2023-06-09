@@ -37,7 +37,7 @@ class SharebnbApi {
 
   // Individual API routes
 
-  // /** Get details on a company by handle. */
+  // /** Get details on a property by Id. */
 
   static async getProperty(propertyId) {
     let res = await this.request(`property/${propertyId}`);
@@ -65,8 +65,8 @@ class SharebnbApi {
     return res.access_token;
   }
 
-  /** Send { username, password, firstName, lastName,
-   * email } to api and retrieve token */
+  /** Send { username, password, firstName, lastName, email }
+   * to api and retrieve token */
 
   static async register(data) {
     let res = await this.request("auth/signup", data, "post");
@@ -74,6 +74,7 @@ class SharebnbApi {
   }
 
   /** Send username and get user information */
+
   static async getUser(username) {
     let res = await this.request(`user/${username}`);
     return res.user;
@@ -81,6 +82,7 @@ class SharebnbApi {
 
   /** Send { username, password, firstName, lastName, email }
    *  to api and retrieve user */
+
   static async updateUser(username, data) {
     let res = await this.request(`user/${username}`, data, "patch");
     return res.user;

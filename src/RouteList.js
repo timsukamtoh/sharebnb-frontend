@@ -6,7 +6,6 @@ import LoginPage from './LoginPage';
 import SignUpPage from './SignUpPage';
 import ProfilePage from './ProfilePage';
 import userContext from './userContext';
-import BookingsPage from "./BookingsPage";
 import PropertiesPage from "./PropertiesPage";
 import PropertyDetail from "./PropertiesDetail";
 import PropertiesList from "./PropertiesList";
@@ -35,7 +34,7 @@ function RouteList({ login, signup, updateUser, addBooking }) {
         </React.Fragment>
         : <React.Fragment>
           <Route path={`/users/:username/properties`} element={<PropertiesList properties={currUser.properties}/>} />
-          <Route path={`/users/:username/bookings`} element={<BookingsPage addBooking/>} />
+          <Route path={`/users/:username/bookings`} element={<PropertiesList properties={currUser.bookings}/>} />
           <Route path={`/users/:username/profile`} element={<ProfilePage update={updateUser} />}/>
         </React.Fragment>
       }

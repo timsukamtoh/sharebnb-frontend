@@ -6,9 +6,9 @@ import Alert from "./Alert";
 function BookingForm({ propertyId, onSubmit }) {
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState({});
   const [alertMsgs, setAlertMsgs] = useState([]);
-
+  console.log("formData: ", formData);
   function handleChange(evt) {
     const { name, value } = evt.target;
     setFormData(formData => ({
@@ -22,6 +22,8 @@ function BookingForm({ propertyId, onSubmit }) {
     const submitData = new FormData();
     submitData.append('start_date', formData.startDate);
     submitData.append('end_date', formData.endDate);
+    console.log("submitData: ", submitData)
+
     try {
       await onSubmit(propertyId, submitData);
       setFormData({});
@@ -35,9 +37,9 @@ function BookingForm({ propertyId, onSubmit }) {
     <div className="BookingForm m-2">
       <form encType="multipart/form" onSubmit={handleSubmit}>
         <label htmlFor="startDate">Start Date:</label>
-        <input id="startDate" name="startDate" type="date" onChange={handleChange}/>
+        <input id="startDate" name="startDate" type="date" onChange={handleChange} />
         <label htmlFor="endDate">End Date:</label>
-        <input id="endDate" name="endDate" type="date" onChange={handleChange}/>
+        <input id="endDate" name="endDate" type="date" onChange={handleChange} />
         {alertMsgs.length > 0 && <Alert alertMsgs={alertMsgs} />}
         <button>Submit</button>
       </form>

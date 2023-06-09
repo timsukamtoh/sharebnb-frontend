@@ -1,6 +1,7 @@
 import PropertyCard from "./PropertyCard";
 
 function PropertiesList({properties}) {
+  console.log("properties:", properties)
   return (
     <div className="PropertiesList">
       {properties.length > 0

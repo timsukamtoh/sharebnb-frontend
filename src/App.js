@@ -63,8 +63,8 @@ function App() {
 
   /**BOOKING METHODS */
 
-  async function addBooking(formData = {}) {
-    const bookResp = await SharebnbApi.addBooking(formData);
+  async function addBooking(propertyId, formData = {}) {
+    const bookResp = await SharebnbApi.addBooking(propertyId, formData);
     setCurrUser(oldUser =>
       ({ ...oldUser,
         bookings: [...oldUser.bookings, bookResp.booking] }));
