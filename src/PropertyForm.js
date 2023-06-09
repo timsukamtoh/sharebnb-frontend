@@ -33,6 +33,7 @@ function PropertyForm({ onSubmit, toggleAdding }) {
 
   /** Submit form: call function from parent & clear inputs. */
   async function handleSubmit(evt) {
+    evt.preventDefault();
     const submitData = new FormData();
     submitData.append('address', formData.address);
     submitData.append('sqft', formData.sqft);
@@ -43,6 +44,7 @@ function PropertyForm({ onSubmit, toggleAdding }) {
       await onSubmit(submitData);
       setFormData(initialFormInput);
       setFile(null)
+      toggleAdding();
       navigate(`/users/${currUser.username}/properties`);
     } catch (err) {
       setAlertMsgs(err);
