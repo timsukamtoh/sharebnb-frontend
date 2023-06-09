@@ -17,8 +17,7 @@ function PropertiesList({properties, addProperty}) {
       {username && !isAdding && <button className="btn btn-info" onClick={toggleAdding}>Add Property</button>}
       {isAdding &&
           <div>
-            <PropertyForm onSubmit={addProperty} />
-            <button className="btn btn-danger" onClick={toggleAdding}>Cancel</button>
+            <PropertyForm onSubmit={addProperty} toggleAdding={toggleAdding}/>
           </div>}
       {properties.length > 0
           ? properties.map(p => <PropertyCard key={p.id} property={p}/>)

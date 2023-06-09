@@ -10,23 +10,23 @@ function NavBar({ logout }) {
   const { currUser } = useContext(userContext);
 
   return (
-    <nav className="navbar navbar-dark navbar-expand-sm bg-primary">
-        <NavLink className="col-4 navbar-brand nav-link" to="/" >
+    <nav className="navbar bg-primary text-white ">
+        <NavLink className="col-5 navbar-brand nav-link text-white" to="/" >
           Home
         </NavLink>
-        <NavLink className="nav-link" to="/properties" >
+        <NavLink className="text-white m-2 text-decoration-none" to="/properties" >
           Listings
         </NavLink>
         {!currUser
-          ? <div>
-            <NavLink className="nav-link" to="/login" >Login</NavLink>
-            <NavLink className="nav-link" to="/signup" >Sign Up</NavLink>
+          ? <div className="d-flex flex-row">
+            <NavLink className="text-white text-decoration-none" to="/login" >Login</NavLink>
+            <NavLink className="text-white text-decoration-none" to="/signup" >Sign Up</NavLink>
           </div>
-          : <div>
-            <NavLink className="nav-link" to={`/users/${currUser.username}/properties`} >My Properties</NavLink>
-            <NavLink className="nav-link" to={`/users/${currUser.username}/bookings`} >My Bookings</NavLink>
-            <NavLink className="nav-link" to={`/users/${currUser.username}/profile`} >Profile</NavLink>
-            <Link  onClick={logout} className="Logout nav-link" to="/" >Logout {currUser.first_name}</Link>
+          : <div className="d-flex flex-row m-2">
+            <NavLink className="text-white m-2 text-decoration-none" to={`/users/${currUser.username}/properties`} >My Properties</NavLink>
+            <NavLink className="text-white m-2 text-decoration-none" to={`/users/${currUser.username}/bookings`} >My Bookings</NavLink>
+            <NavLink className="text-white m-2 text-decoration-none" to={`/users/${currUser.username}/profile`} >Profile</NavLink>
+            <Link  onClick={logout} className="Logout m-2 text-white text-decoration-none" to="/" >Logout {currUser.first_name}</Link>
           </div>
         }
     </nav>

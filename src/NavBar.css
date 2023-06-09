@@ -1,6 +1,6 @@
 a {
     text-decoration: none;
-    color: aliceblue;
+    color: black;
     margin-right: 10px;
 }
 
@@ -8,9 +8,10 @@ nav a.active {
   color: cyan;
 }
 
+
 div a.active {
     color: cyan;
-  }
+}
 
 /* stroke */
 nav a {
@@ -40,5 +41,5 @@ nav a:before {
   transition: all .5s;
 }
 nav a:hover {
-  color: yellow;
+  color: cyan;
 }

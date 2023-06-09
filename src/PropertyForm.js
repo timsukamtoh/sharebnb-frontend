@@ -3,7 +3,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Alert from "./Alert";
 
-function PropertyForm({ onSubmit }) {
+function PropertyForm({ onSubmit, toggleAdding }) {
   const navigate = useNavigate();
   const { currUser } = useContext(userContext);
   const initialFormInput = {
@@ -50,7 +50,7 @@ function PropertyForm({ onSubmit }) {
   }
 
   return (
-    <div className="PropertyForm m-2 text-center">
+    <div className="PropertyForm m-2 text-start m-2">
       <form onSubmit={handleSubmit} encType="multipart/form">
         <div>
           <input
@@ -108,6 +108,7 @@ function PropertyForm({ onSubmit }) {
         </div>
         {alertMsgs.length > 0 && <Alert alertMsgs={alertMsgs} />}
         <button className="PropertyForm-submitBtn btn btn-primary m-1">Add Property</button>
+        <button className="btn btn-danger" onClick={toggleAdding}>Cancel</button>
       </form>
     </div>
   );
