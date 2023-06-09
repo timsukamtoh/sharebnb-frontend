@@ -20,7 +20,7 @@ function BookingCard({booking, delBooking}) {
         <h2>{booking.address}</h2>
       </Link>
       <img src={booking.property.img_url} alt={booking.id}></img>
-      <p>total price: {booking.total_price}</p>
+      <p>total price: ${booking.total_price}</p>
       <button className="btn btn-danger" onClick={handleClick}>Delete</button>
     </div>
   )
