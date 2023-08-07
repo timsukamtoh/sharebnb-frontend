@@ -1,4 +1,6 @@
 import BookingCard from "./BookingCard"
+
+import "./PropertiesList.css"
 /** BookingsList renders list of bookings for user
  *
  * Props:
@@ -12,7 +14,7 @@ function BookingsList({bookings, delBooking}) {
   console.log("delBooking type: ", typeof delBooking);
 
   return (
-    <div className="BookingsList">
+    <div className="properties-list pt-5">
       {bookings.length > 0
           ? bookings.map(b => <BookingCard key={b.id} booking={b} delBooking={delBooking}/>)
           : <h3>No bookings are listed.</h3>

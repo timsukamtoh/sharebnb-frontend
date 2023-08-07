@@ -15,7 +15,7 @@ function BookingCard({booking, delBooking}) {
   }
 
   return (
-    <div className="BookingCard">
+    <div className="BookingCard bg-secondary bg-opacity-75 rounded">
       <Link className="text-decoration-none text-dark" to={`/bookings/${booking.id}`}>
         <h2>{booking.address}</h2>
       </Link>

@@ -51,12 +51,12 @@ function ProfileForm({ onSubmit }) {
   }
 //TODO: alert for successful update
   return (
-    <div className="ProfileForm text-start m-2">
+    <div className="ProfileForm p-3">
       <form onSubmit={handleSubmit} encType="multipart/form">
-        <div>
+        <div className="form-group col-sm-5 mx-auto text-start m-2">
           <label htmlFor="username">Username</label>
           <input
-            className="form-control w-50"
+            className="form-control"
             readOnly={true}
             id="username"
             name="username"
@@ -66,10 +66,10 @@ function ProfileForm({ onSubmit }) {
           />
         </div>
 
-        <div>
+        <div className="form-group col-sm-5 mx-auto text-start m-2">
           <label htmlFor="firstName">First Name</label>
           <input
-            className="form-control w-50"
+            className="form-control"
             id="firstName"
             onChange={handleChange}
             name="firstName"
@@ -78,10 +78,10 @@ function ProfileForm({ onSubmit }) {
           />
         </div>
 
-        <div>
+        <div className="form-group col-sm-5 mx-auto text-start m-2">
           <label htmlFor="lastName">Last Name</label>
           <input
-            className="form-control w-50"
+            className="form-control"
             id="lastName"
             onChange={handleChange}
             name="lastName"
@@ -90,10 +90,10 @@ function ProfileForm({ onSubmit }) {
           />
         </div>
 
-        <div>
+        <div className="form-group col-sm-5 mx-auto text-start m-2">
           <label htmlFor="email">Email</label>
           <input
-            className="form-control w-50"
+            className="form-control"
             id="email"
             onChange={handleChange}
             name="email"

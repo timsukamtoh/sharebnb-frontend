@@ -3,6 +3,9 @@ import { useState } from "react";
 import PropertyForm from "./PropertyForm";
 import { useParams } from "react-router-dom";
 
+import "./PropertiesList.css";
+
+
 /** PropertiesList renders list for property
  *
  * Props:
@@ -23,7 +26,7 @@ function PropertiesList({properties, addProperty}) {
   }
 
   return (
-    <div className="PropertiesList">
+    <div className="properties-list pt-5">
       {username && !isAdding && <button className="btn btn-info m-2" onClick={toggleAdding}>Add Property</button>}
       {isAdding &&
           <div>

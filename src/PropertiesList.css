@@ -1,0 +1,9 @@
+.properties-list {
+    width: 80%;
+}
+@media (min-width: 800px) {
+    /* CSS that should be displayed if width is equal to or greater than 800px goes here */
+    .properties-list {
+        width: 75%;
+    }
+}

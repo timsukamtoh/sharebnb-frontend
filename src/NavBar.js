@@ -1,5 +1,9 @@
 import React, { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+
 import userContext from "./userContext";
 import "./NavBar.css";
 
@@ -15,7 +19,33 @@ function NavBar({ logout }) {
   const { currUser } = useContext(userContext);
 
   return (
-    <nav className="navbar bg-success text-white ">
+    <Navbar bg="primary" data-bs-theme="dark" collapseOnSelect expand="lg" className="bg-body-tertiary w-100 fixed-top">
+      <Container>
+        <Navbar.Brand href="/" className="text-secondary"><strong>ShareNbN</strong></Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
+          {!currUser
+            ? <Nav>
+                <Nav.Link href="/properties">Listings</Nav.Link>
+                <Nav.Link href="/login">Login</Nav.Link>
+                <Nav.Link href="/signup">Signup</Nav.Link>
+              </Nav>
+            : <Nav>
+                <Nav.Link href="/properties">Listings</Nav.Link>
+                <Nav.Link href={`/users/${currUser.username}/properties`}>My Properties</Nav.Link>
+                <Nav.Link href={`/users/${currUser.username}/bookings`}>My Bookings</Nav.Link>
+                <Nav.Link href={`/users/${currUser.username}/profile`}>Profile</Nav.Link>
+                <Link href="/" className="nav-item nav-link" onClick={logout}>Logout {currUser.first_name}</Link>
+              </Nav>
+          }
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+
+}
+/**
+ * <nav className="navbar bg-success text-white ">
       <NavLink className="col-5 navbar-brand nav-link text-white" to="/" >
         Home
       </NavLink>
@@ -59,8 +89,5 @@ function NavBar({ logout }) {
         </div>
       }
     </nav>
-  );
-
-}
-
+ */
 export default NavBar;
