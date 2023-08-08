@@ -19,7 +19,7 @@ function NavBar({ logout }) {
   const { currUser } = useContext(userContext);
 
   return (
-    <Navbar bg="primary" data-bs-theme="dark" collapseOnSelect expand="lg" className="bg-body-tertiary w-100 fixed-top">
+    <Navbar bg="primary" data-bs-theme="dark" collapseOnSelect expand="lg" className="bg-body-tertiary w-100 sticky-top">
       <Container>
         <Navbar.Brand href="/" className="text-secondary"><strong>ShareNbN</strong></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
