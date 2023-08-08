@@ -11,7 +11,7 @@ import "./PropertyCard.css";
 function PropertyCard({property}) {
   return (
     <Link className="text-decoration-none text-dark" to={`/properties/${property.id}`}>
-    <div className="PropertyCard">
+    <div className="PropertyCard bg-secondary bg-opacity-75 rounded">
       <h2>{property.address}</h2>
       <img src={property.img_url} alt={property.id}></img>
       <p>price rate: ${property.price_rate}/day</p>

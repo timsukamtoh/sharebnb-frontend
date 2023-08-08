@@ -50,12 +50,14 @@ function BookingForm({ propertyId, onSubmit }) {
   return (
     <div className="BookingForm m-2">
       {alertMsgs.length > 0 && <Alert alertMsgs={alertMsgs} />}
-      <div className="form body">
+      <div className="form body ">
         <form encType="multipart/form" onSubmit={handleSubmit}>
           <label htmlFor="startDate">Start Date:</label>
           <input id="startDate" name="startDate" type="date" onChange={handleChange} />
+          <br/>
           <label htmlFor="endDate">End Date:</label>
           <input id="endDate" name="endDate" type="date" onChange={handleChange} />
+          <br/>
           <button className="btn btn-success">Submit</button>
           <Link className="btn btn-warning" to={'/properties'}>Cancel</Link>
         </form>

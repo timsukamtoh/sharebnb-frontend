@@ -8,7 +8,7 @@ import ProfileForm from "./ProfileForm"
  */
 function ProfilePage({update}) {
   return (
-    <div className="ProfilePage">
+    <div className="ProfilePage w-100">
       <ProfileForm onSubmit={update}/>
     </div>
   )

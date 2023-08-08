@@ -106,7 +106,7 @@ function App() {
   if (loadingUser) return (<div>Loading...</div>);
 
   return (
-    <div className="App">
+    <div className="App d-flex flex-column align-items-center">
       <BrowserRouter>
         <userContext.Provider value={{ currUser }}>
           <NavBar logout={logout} />
