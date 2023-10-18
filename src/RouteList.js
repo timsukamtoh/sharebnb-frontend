@@ -29,7 +29,7 @@ import BookingDetail from "./BookingDetail";
  */
 function RouteList({ login, signup, updateUser, addBooking, delBooking, addProperty }) {
   const { currUser } = useContext(userContext);
-  console.log(typeof delBooking);
+  console.log(currUser);
 
 
   return (

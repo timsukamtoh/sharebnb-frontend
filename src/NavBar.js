@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
-import {Container, Nav, NavBar }from 'react-bootstrap/Container';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import NavBar from 'react-bootstrap/NavBar';
 
 import userContext from "./userContext";
 import "./NavBar.css";
@@ -13,15 +15,15 @@ import "./NavBar.css";
  *
  * App -> NavBar
  */
-function NavBar({ logout }) {
+function Navbar({ logout }) {
   const { currUser } = useContext(userContext);
 
   return (
-    <Navbar bg="primary" data-bs-theme="dark" collapseOnSelect expand="lg" className="bg-body-tertiary w-100 sticky-top">
+    <NavBar bg="primary" data-bs-theme="dark" collapseOnSelect expand="lg" className="bg-body-tertiary w-100 sticky-top">
       <Container>
-        <Navbar.Brand href="/" className="text-secondary"><strong>ShareNbN</strong></Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
+        <NavBar.Brand href="/" className="text-secondary"><strong>ShareNbN</strong></NavBar.Brand>
+        <NavBar.Toggle aria-controls="responsive-navbar-nav" />
+        <NavBar.Collapse id="responsive-navbar-nav" className="justify-content-end">
           {!currUser
             ? <Nav>
                 <Nav.Link href="/properties">Listings</Nav.Link>
@@ -36,9 +38,9 @@ function NavBar({ logout }) {
                 <Link href="/" className="nav-item nav-link" onClick={logout}>Logout {currUser.first_name}</Link>
               </Nav>
           }
-        </Navbar.Collapse>
+        </NavBar.Collapse>
       </Container>
-    </Navbar>
+    </NavBar>
   );
 
 }
@@ -88,4 +90,4 @@ function NavBar({ logout }) {
       }
     </nav>
  */
-export default NavBar;
+export default Navbar;
