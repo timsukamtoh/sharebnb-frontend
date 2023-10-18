@@ -19,11 +19,11 @@ function Navbar({ logout }) {
   const { currUser } = useContext(userContext);
 
   return (
-    <NavBar bg="primary" data-bs-theme="dark" collapseOnSelect expand="lg" className="bg-body-tertiary w-100 sticky-top">
+    <Navbar bg="primary" data-bs-theme="dark" collapseOnSelect expand="lg" className="bg-body-tertiary w-100 sticky-top">
       <Container>
-        <NavBar.Brand href="/" className="text-secondary"><strong>ShareNbN</strong></NavBar.Brand>
-        <NavBar.Toggle aria-controls="responsive-navbar-nav" />
-        <NavBar.Collapse id="responsive-navbar-nav" className="justify-content-end">
+        <Navbar.Brand href="/" className="text-secondary"><strong>ShareNbN</strong></Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
           {!currUser
             ? <Nav>
                 <Nav.Link href="/properties">Listings</Nav.Link>
@@ -38,9 +38,9 @@ function Navbar({ logout }) {
                 <Link href="/" className="nav-item nav-link" onClick={logout}>Logout {currUser.first_name}</Link>
               </Nav>
           }
-        </NavBar.Collapse>
+        </Navbar.Collapse>
       </Container>
-    </NavBar>
+    </Navbar>
   );
 
 }
